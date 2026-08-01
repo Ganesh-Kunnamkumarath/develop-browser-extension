@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Health Tracker — Dashboard</title>
+<link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <header class="page-header">
+    <div class="brand">
+      <img src="../icons/icon48.png" alt="" />
+      <div>
+        <h1>Health Tracker</h1>
+        <p>Better habits. Better health. Better me.</p>
+      </div>
+    </div>
+
+    <div class="month-nav">
+      <button id="prev-month" class="nav-btn" aria-label="Previous month">‹</button>
+      <span id="month-label">Month</span>
+      <button id="next-month" class="nav-btn" aria-label="Next month">›</button>
+    </div>
+
+    <div class="goal-inputs">
+      <label>Target Weight (kg)
+        <input type="number" id="target-weight" step="0.1" min="0" placeholder="—" />
+      </label>
+    </div>
+  </header>
+
+  <main>
+    <section class="card table-card">
+      <table id="entries-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Weight (kg)</th>
+            <th>Steps</th>
+            <th>Dinner &lt;6PM</th>
+            <th>Protein (g)</th>
+            <th>Veg &amp; Fiber</th>
+            <th>Water (L)</th>
+            <th>Sleep (h)</th>
+            <th>Score</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody id="entries-body"></tbody>
+      </table>
+    </section>
+
+    <section class="weekly-section">
+      <h2>Weekly Check-In</h2>
+      <div id="weekly-cards" class="weekly-grid"></div>
+    </section>
+
+    <section class="bottom-grid">
+      <div class="card" id="monthly-summary-card">
+        <h2>Monthly Summary</h2>
+        <dl id="monthly-summary-list" class="summary-list"></dl>
+        <div class="summary-field">
+          <label>Best Habit <span id="best-habit" class="pill"></span></label>
+        </div>
+        <div class="summary-field">
+          <label for="focus-next">Focus for Next Month</label>
+          <textarea id="focus-next" rows="2" placeholder="What will you work on next month?"></textarea>
+        </div>
+      </div>
+
+      <div class="card" id="progress-card">
+        <h2>Progress Tracker</h2>
+        <div id="chart-wrap"></div>
+        <div class="goal-progress">
+          <div class="goal-progress-label">
+            <span>Goal Progress</span>
+            <span id="goal-progress-pct">0%</span>
+          </div>
+          <div class="goal-progress-bar"><div id="goal-progress-fill"></div></div>
+        </div>
+      </div>
+
+      <div class="card" id="feelings-card">
+        <h2>How I Felt This Month</h2>
+        <div id="feelings-list" class="feelings-list"></div>
+        <blockquote class="quote">Win the day. The health will follow.</blockquote>
+      </div>
+    </section>
+
+    <section class="data-actions">
+      <button id="export-json" class="ghost-btn">Export Data (JSON)</button>
+      <label class="ghost-btn file-btn">
+        Import Data (JSON)
+        <input type="file" id="import-json" accept="application/json" hidden />
+      </label>
+      <button id="print-btn" class="ghost-btn">Print / Save PDF</button>
+      <button id="clear-month" class="ghost-btn danger">Clear This Month</button>
+    </section>
+  </main>
+
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>

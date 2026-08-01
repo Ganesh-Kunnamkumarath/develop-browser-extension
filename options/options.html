@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Health Tracker — Settings</title>
+<link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <header class="page-header">
+    <img src="../icons/icon48.png" alt="" />
+    <div>
+      <h1>Settings</h1>
+      <p>Reminders, goals, and data.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Update Reminders</h2>
+      <p class="hint">Notifications fire only while your browser is open. Grant notification permission if your OS asks.</p>
+
+      <div class="reminder-row">
+        <label class="toggle">
+          <input type="checkbox" id="daily-enabled" />
+          <span>Daily reminder to log today's tracker</span>
+        </label>
+        <input type="time" id="daily-time" />
+      </div>
+
+      <div class="reminder-row">
+        <label class="toggle">
+          <input type="checkbox" id="weekly-enabled" />
+          <span>Weekly check-in reminder</span>
+        </label>
+        <select id="weekly-day">
+          <option value="0">Sunday</option>
+          <option value="1">Monday</option>
+          <option value="2">Tuesday</option>
+          <option value="3">Wednesday</option>
+          <option value="4">Thursday</option>
+          <option value="5">Friday</option>
+          <option value="6">Saturday</option>
+        </select>
+        <input type="time" id="weekly-time" />
+      </div>
+
+      <div class="reminder-row">
+        <label class="toggle">
+          <input type="checkbox" id="monthly-enabled" />
+          <span>Monthly summary reminder (on the 1st)</span>
+        </label>
+        <input type="time" id="monthly-time" />
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Goal</h2>
+      <label class="field">
+        <span>Target Weight (kg)</span>
+        <input type="number" id="target-weight" step="0.1" min="0" placeholder="e.g. 75" />
+      </label>
+    </section>
+
+    <section class="card">
+      <h2>Data</h2>
+      <div class="button-row">
+        <button id="export-json" class="ghost-btn">Export All Data (JSON)</button>
+        <label class="ghost-btn file-btn">
+          Import Data (JSON)
+          <input type="file" id="import-json" accept="application/json" hidden />
+        </label>
+      </div>
+      <p class="hint">Your data is stored locally in the browser via chrome.storage. Export regularly if you want a backup.</p>
+    </section>
+
+    <p id="save-toast" class="save-toast">Saved</p>
+  </main>
+
+  <script type="module" src="options.js"></script>
+</body>
+</html>
